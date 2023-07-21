@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{%load static%}
+
+
+{%block title%} Lista de Posts {% endblock%}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="mt-5">Lista de Posts</h1>
+    <div class="row mt-4">
+        {% for post in posts %}
+        <div class="col-lg-4 col-md-6 ">
+            <div class=" card mb-4 ">
+                <a href="#!">
+                    {% if post.image %}
+                    <img src="{{post.image.url}}" alt="Post-{{post.title}}" class="card-img-top">
+                    {% else %}
+                    <img src="{% static 'img/post_default.jpg' %}" alt="Post-{{post.title}}"
+                         class="card-img-top">
+                    {% endif %}
+
+                </a>
+                <div class="card-body">
+                    <div class="small text-muted">{{ post.created | date }}</div>
+                    <h2 class="card-title h4">{{ post.title }}</h2>
+                    <p class="card-text">{{ post.description | truncatewords:10 }}</p>
+                    <a class="btn btn-primary" href="{% url 'post_detail' post.slug %}">Leia mais→</a>
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <div class="col">
+            <p>Nenhum post disponível.</p>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<nav aria-label="...">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">&laquo; Primeira</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number
+                }}</a>
+        </li>
+        {% endif%}
+
+        <li class="page-item active"><a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a>
+        </li>
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+        </li>
+
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Proximo</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock%}
+
+{% block scripts %}
+const cards = document.querySelectorAll('.card');
+
+// Encontra a altura máxima entre todos os cards
+let maxHeight = 0;
+cards.forEach((card) => {
+  const cardHeight = card.offsetHeight;
+  if (cardHeight > maxHeight) {
+    maxHeight = cardHeight;
+  }
+});
+
+// Define a altura máxima em todos os cards
+cards.forEach((card) => {
+  card.style.height = `${maxHeight}px`;
+});
+
+{% endblock %}

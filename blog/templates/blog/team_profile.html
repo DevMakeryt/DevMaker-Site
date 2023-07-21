@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{%load static%}
+
+
+{%block title%} Sobre nós {% endblock%}
+{%block subtitle%} Portfolio  {% endblock%}
+{%block breadcrumb%}
+<li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+<li class="breadcrumb-item active">Sobre nós</li>
+{% endblock%}
+
+
+{% block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                    <div class="text-center">
+
+                        {% if profile.avatar %}
+
+                        <img class="rounded-circle img-fluid"
+                             src="{{profile.avatar.url}}"
+                             alt="{{profile.user.get_full_name}}">
+
+                        {% else %}
+                        <img class="rounded-circle img-fluid"
+                             src="{% static 'img/avatar.png' %}"
+                             alt="{{profile.user.get_full_name}}">
+
+                        {% endif %}
+                    </div>
+
+                    <h5 class="profile-username text-center">{{profile.user.get_full_name}}</h5>
+
+                    <p class="text-muted text-center">{{profile.user.title}}</p>
+
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>Projetos</b> <a class="float-right">{{profile.user.project_set.all.count}}</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Posts</b> <a class="float-right">{{profile.user.post_set.all.count}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Sobre mim</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <strong><i class="fas fa-book mr-1"></i> Educação</strong>
+
+                    <p class="text-muted">
+                        Tecnologo em Analise e Desenvolvimento de Sistema no IFNMG - Almenara
+                    </p>
+
+                    <hr>
+
+                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Localização</strong>
+
+                    <p class="text-muted">Dionisio, Minas Gerais</p>
+
+                    <hr>
+
+                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+                    <p class="text-muted">
+                        <span class="tag tag-danger">UI Design</span>
+                        <span class="tag tag-success">Coding</span>
+                        <span class="tag tag-info">Javascript</span>
+                        <span class="tag tag-warning">Python</span>
+                        <span class="tag tag-primary">Java</span>
+                    </p>
+
+                    <hr>
+
+                    <strong><i class="far fa-file-alt mr-1"></i> Notas</strong>
+
+                    <p class="text-muted">Começamos um novo desafio todos os dias.</p>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header p-2">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a class="nav-link active" href="#projects" data-toggle="tab">Projetos</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#data" data-toggle="tab">Dados Pessoais</a></li>
+                    </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="projects">
+                            <span>Projetos</span>
+                        </div>
+                        <!-- /.tab-pane -->
+
+                        <div class="tab-pane" id="data">
+                            <p><b>Nome:</b> {{ profile.user.get_full_name }}</p>
+                            <p><b>Email:</b> {{ profile.user.email }} </p>
+                            <b>Redes:</b>
+                            <ul>
+                                {% if profile.linkedin %}
+                                <li><a href="{{ profile.linkedin }}"> Linkedin</a></li>
+                                {% endif %}
+                                {% if profile.github %}
+                                <li><a href="{{ profile.github }}"> Github</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+</div>
+{% endblock%}

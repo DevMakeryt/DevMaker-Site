@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{%load static%}
+
+
+{%block title%} {{post.title}} {% endblock%}
+{%block subtitle%} {{post.title}} {% endblock%}
+{%block breadcrumb%}
+<li class="breadcrumb-item active"><a href="{% url 'home' %}">Home</a></li>
+<li class="breadcrumb-item active"><a href="{% url 'post_list'%}">Posts</a></li>
+<li class="breadcrumb-item active">{{post.title}}</li>
+
+{% endblock%}
+
+{% block content%}
+<div class="container">
+    <div class="card">
+        {% if post.image %}
+        <img src="{{post.image.url}}" alt="Post-{{post.title}}" class="card-img-top post-img-top">
+        {% else %}
+        <img src="{% static 'img/post_default.jpg' %}" alt="Post-{{post.title}}"
+             class="card-img-top post-img-top">
+        {% endif %}
+        <div class="card-header">
+            <p><b>Autor</b>: {{ post.author }}</p>
+            <p><b>Vizualizações</b>: {{ post.views }}</p>
+            <p><b>Data de publicação</b>: {{ post.created }}</p>
+        </div>
+        <div class="card-body">
+
+            <div>{{ post.content | safe }}</div>
+
+
+            <hr>
+            <!--
+            <h2>Comentários</h2>
+            {% for comment in post.comments.all %}
+            <p>{{ comment.text }}</p>
+            <p>Por: {{ comment.author }}</p>
+            <p>Data: {{ comment.created }}</p>
+            <hr>
+            {% empty %}
+            <p>Nenhum comentário disponível.</p>
+            {% endfor %}
+            -->
+        </div>
+    </div>
+</div>
+
+{% endblock%}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{%load static%}
+
+
+{%block title%} Time {% endblock%}
+{%block subtitle%}   {% endblock%}
+
+{%block breadcrumb%}
+<li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+<li class="breadcrumb-item active">Time</li>
+{% endblock%}
+
+
+{% block content%}
+<div class="container">
+    <div class="row d-flex justify-content-around">
+        {% for user in team %}
+        <div class="card card-team col-md-5 col-lg-3 col-sm-6 ">
+            <div class="card-body ">
+                <div class="text-center">
+
+                    <div class="text-center">
+
+                        {% if user.userprofile.avatar %}
+
+                        <img class="rounded-circle img-fluid"
+                             src="{{ user.userprofile.avatar.url }}"
+                             alt="{{ user.get_full_name }}">
+
+                        {% else %}
+                        <img class="rounded-circle img-fluid"
+                             src="{% static 'img/avatar.png' %}"
+                             alt="{{ user.get_full_name }}">
+
+                        {% endif %}
+                    </div>
+
+                </div>
+
+                <h5 class="profile-username text-center">{{ user.get_full_name }}</h5>
+
+                <p class="text-muted text-center">{{ user.userprofile.title }}</p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                    <li class="list-group-item">
+                        <b>Projetos</b> <a class="float-right">{{user.project_set.all.count}}</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Posts</b> <a class="float-right">{{user.post_set.all.count}}</a>
+                    </li>
+                </ul>
+
+                <a href="{% url 'team_profile' user.userprofile.slug %}"
+                   class="btn btn-block btn-primary">Acessar Perfil</a>
+            </div>
+        </div>
+        {% empty %}
+        <span>Sem membros da equipe </span>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock%}

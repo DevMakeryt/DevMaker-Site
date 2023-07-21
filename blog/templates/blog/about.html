@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{%load static%}
+
+
+{% block title %} Sobre nós {% endblock %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+<li class="breadcrumb-item active">Sobre nós</li>
+{% endblock%}
+
+
+{% block content%}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h2>Sobre Nós</h2>
+            <p>Bem-vindo ao Devmaker, sua fonte confiável para recursos de desenvolvimento de software, tutoriais e
+                dicas
+                úteis. Somos uma equipe de entusiastas da programação apaixonados por compartilhar nosso conhecimento e
+                ajudar outros desenvolvedores a alcançar seu potencial máximo.</p>
+            <p>Em nosso site, você encontrará uma variedade de conteúdo relacionado a:</p>
+            <ul>
+                <li>Linguagens de programação</li>
+                <li>Frameworks</li>
+                <li>Melhores práticas de desenvolvimento</li>
+                <li>IoT</li>
+                <li>Robotica</li>
+                <li>Novidades da indústria e muito mais</li>
+                <li></li>
+            </ul>
+            <p>Nossa missão é fornecer recursos de qualidade que inspirem e capacitem desenvolvedores em todo o mundo.</p>
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock%}
