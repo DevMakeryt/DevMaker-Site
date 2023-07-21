@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} DevMaker {% endblock %}</title>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap4/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/fontawesome/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body style="padding-top: 60px;" class="content-wrapper">
+<header>
+    {% include 'partials/_navbar.html' %}
+</header>
+
+<main role="main" class="">
+
+    <div class="container content-wrapper">
+        {% block content %}{% endblock %}
+    </div>
+    {% include 'partials/_footer.html' %}
+</main>
+
+<script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
+<script type="module" src="{% static 'js/firebase.js' %}"></script>
+<script src="{% static 'js/bootstrap4/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'js/fontawesome/all.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script>
+    {% block scripts%}{% endblock %}
+</script>
+
+
+</body>
+</html>

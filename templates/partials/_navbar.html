@@ -1,0 +1,52 @@
+{% load static %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+    <a href="/" class="navbar-brand">
+        <img src="{% static 'img/logo.png' %}" alt="DevMaker Logo" width="30" height="30"
+             class="d-inline-block align-top" alt="">
+        <span class="brand-text font-weight-dark">DevMaker</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'post_list' %}" class="nav-link">Postagens</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'about' %}" class="nav-link">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'team' %}" class="nav-link">Time</a>
+            </li>
+
+            <li class="nav-item">
+                <form class="form-inline ">
+                    <div class="input-group ">
+                        <label class="sr-only" for="search">Buscar</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control mr-sm-2" id="search" name="search"
+                                   placeholder="Buscar">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar btn-outline-secondary " type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+
+
+        </ul>
+
+
+    </div>
+
+</nav>

@@ -1,0 +1,168 @@
+/* Carousel */
+/*
+.carousel .carousel-item img {
+  width: auto; // Largura automática (tamanho original)
+  height-max: 500px; // Altura fixa das imagens
+  object-fit: contain; // Mantém a proporção e enquadra a imagem
+  object-position: center; // Centraliza verticalmente as imagens menores
+}
+*/
+.carousel{
+    background:#cccccd;
+}
+
+
+.carousel-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.btn-carousel {
+    color: #fff;
+    background-color: #0009;
+    border: none;
+    outline: none;
+    border-radius: 40px
+}
+
+.btn-carousel:hover{
+    color: #black;
+    background-color: #dedede;
+}
+
+.carousel .btn-block{
+    display:inline-block;
+    width:50%;
+}
+
+
+@media (max-width: 400px) {
+  .carousel {
+    height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    height: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel {
+    height: 250px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .carousel {
+    height: 350px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .carousel {
+    height: 450px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel {
+    height: 550px;
+  }
+}
+
+
+/* list post */
+
+.thumbnail {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+}
+
+
+
+/* Post */
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.post-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+/* Classe para o contêiner do post */
+.post-container {
+    width: 300px; /* Tamanho padrão do post */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+/*
+.card-post {
+  width: auto;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+*/
+
+.link-no-color {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link-no-color:hover{
+    color:#e97a02;
+}
+
+
+.content-wrapper {
+    background-color: #ddd;
+}
+
+
+
+.card-team{
+    background-color:#402b1445;
+    margin:30px 1px 0 0;
+    height-max:480px;
+    height-min:480px;
+
+}
+
+.btn-team{
+    color: #black;
+    background-color: #916518bd;
+}
+
+.card-team .btn-block{
+    display:inline-block;
+}
