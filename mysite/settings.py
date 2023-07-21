@@ -52,6 +52,13 @@ INSTALLED_APPS = [
 
     'storages',
 
+
+
+
+    #My apps
+
+    'core.apps.CoreConfig',
+
 ]
 
 MIDDLEWARE = [
