@@ -155,8 +155,10 @@ LOGIN_REDIRECT_URL = '/'
 
 if DEBUG:
     from mysite.settings_dev import *
+    print('Dev')
 else:
     from mysite.settings_prod import *
+    print('Prod')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
