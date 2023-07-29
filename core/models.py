@@ -19,7 +19,6 @@ class UserProfile(models.Model):
     location = models.TextField(null=True, blank=True)
     note = models.TextField(null=True, blank=True)
 
-
     def __str__(self):
         return f'profile {self.user.get_full_name()}'
 
