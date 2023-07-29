@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = eval(config('DEBUG'))
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://devmaker.up.railway.app/", "*"]
 
 # FORM SUBMISSION
 # Comment out the following line and place your railway URL, and your production URL in the array.
