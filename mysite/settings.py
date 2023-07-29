@@ -28,6 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = eval(config('DEBUG'))
 
 ALLOWED_HOSTS = ["https://devmaker.up.railway.app/", "*"]
+CSRF_TRUSTED_ORIGINS = ["https://devmaker.up.railway.app/", "*"]
 
 # FORM SUBMISSION
 # Comment out the following line and place your railway URL, and your production URL in the array.
@@ -53,10 +54,7 @@ INSTALLED_APPS = [
 
     'storages',
 
-
-
-
-    #My apps
+    # My apps
 
     'core.apps.CoreConfig',
     'blog.apps.BlogConfig',
@@ -127,8 +125,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -155,9 +151,11 @@ LOGIN_REDIRECT_URL = '/'
 
 if DEBUG:
     from mysite.settings_dev import *
+
     print('Dev')
 else:
     from mysite.settings_prod import *
+
     print('Prod')
 
 # Static files (CSS, JavaScript, Images)
@@ -168,16 +166,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-
-#Messages Tags
+# Messages Tags
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success'
 }
 
-
-#CKEDITOR
+# CKEDITOR
 # CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICT_BY_DATE = True
