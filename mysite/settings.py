@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = eval(config('DEBUG'))
 
 ALLOWED_HOSTS = ["https://devmaker.up.railway.app", "http://devmaker.up.railway.app", "*"]
-CSRF_TRUSTED_ORIGINS=['https://*.devmaker.up.railway.app', 'http://*.devmaker.up.railway.app', '*']
+CSRF_TRUSTED_ORIGINS=['https://*.devmaker.up.railway.app', 'http://*.devmaker.up.railway.app']
 
 # FORM SUBMISSION
 # Comment out the following line and place your railway URL, and your production URL in the array.
