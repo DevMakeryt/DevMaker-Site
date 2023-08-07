@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = eval(config('DEBUG'))
 
 ALLOWED_HOSTS = ["https://devmaker.up.railway.app", "http://devmaker.up.railway.app", "*"]
-CSRF_TRUSTED_ORIGINS=['https://*.devmaker.up.railway.app', 'http://*.devmaker.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://*.devmaker.up.railway.app', 'http://*.devmaker.up.railway.app', 'http://localhost:8000', 'http://127.0.0.1:8000' ]
 
 # FORM SUBMISSION
 # Comment out the following line and place your railway URL, and your production URL in the array.
@@ -210,7 +210,7 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -221,7 +221,7 @@ MESSAGE_TAGS = {
 }
 
 # CKEDITOR
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+# CKEDITOR_BASEPATH = f"{STATIC_URL}ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICT_BY_DATE = True
 
